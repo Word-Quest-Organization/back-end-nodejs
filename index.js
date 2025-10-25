@@ -1,5 +1,5 @@
 // 1. Importa o Express
-const express = require('express');
+const express = require("express");
 
 // 2. Cria uma instância do Express
 const app = express();
@@ -11,8 +11,8 @@ const PORTA = 3000;
 // 4. Define uma rota de teste (a rota raiz '/')
 // req = Requisição (Request): O que o cliente (Flutter) envia.
 // res = Resposta (Response): O que o servidor (Node) devolve.
-app.get('/', (req, res) => {
-  res.send('Meu servidor backend está funcionando!');
+app.get("/", (req, res) => {
+  res.send("Meu servidor backend está funcionando!");
 });
 
 // 5. Inicia o servidor e o faz "ouvir" a porta definida
