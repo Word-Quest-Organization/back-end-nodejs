@@ -8,10 +8,10 @@ const register = async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { email, password, userName } = req.body;
+  const { email, password, name } = req.body;
 
   try {
-    const newUser = await authService.registerUser(email, password, userName);
+    const newUser = await authService.registerUser(email, password, name);
 
     res.status(201).json({
       message: "Usuário registrado com sucesso!",

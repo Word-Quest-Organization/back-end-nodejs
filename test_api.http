@@ -1,0 +1,13 @@
+### Teste da rota GET
+GET http://localhost:3000/api/auth/test
+Content-Type: application/json
+
+### Teste da rota POST
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "natanaelhlacerda@gmail.com",
+  "password": "H@usmano12",
+  "name": "natanaelhlacerda"
+}
