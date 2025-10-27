@@ -1,8 +1,8 @@
 // index.js (Na raiz do projeto)
 
-require('dotenv').config();
+require("dotenv").config();
 
-const app = require('./app');
+const app = require("./app");
 
 const PORTA = process.env.PORTA || 3000;
 

@@ -46,15 +46,13 @@ const loginUser = async (email, password) => {
   }
 
   const token = jwt.sign(
-    { id: user.id, name: user.name, },
+    { id: user.id, name: user.name },
     process.env.JWT_SECRET,
-    { expiresIn: "7d" }
+    { expiresIn: "7d" },
   );
 
   return { token: token };
-
-
-}
+};
 
 module.exports = {
   registerUser,

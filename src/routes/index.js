@@ -1,8 +1,8 @@
 // src/routes/index.js
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const authRoutes = require('./auth_routes');
+const authRoutes = require("./auth_routes");
 
-router.use('/auth', authRoutes);
+router.use("/auth", authRoutes);
 
 module.exports = router;
