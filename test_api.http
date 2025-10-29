@@ -18,7 +18,16 @@ Content-Type: application/json
 
 {
   "email": "natanaelhlacerda@gmail.com",
-  "password": "H@usano12"
+  "password": "H@usmano12"
   
 }
+
+### Teste da rota GET do perfil do usuário
+GET http://localhost:3000/api/user/profile
+Content-Type: application/json
+
+### Teste da rota GET do perfil do usuário com token
+GET http://localhost:3000/api/user/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MDRiOTA1LTJmMDktNGRlNi1hMTNiLTMxZGRjZmE4MDE3MSIsIm5hbWUiOiJuYXRhbmFlbGhsYWNlcmRhIiwiaWF0IjoxNzYxNzU1MDEwLCJleHAiOjE3NjIzNTk4MTB9.EBnR6q6UuRjQ1llOhRuCE1v0NYsySLfZ1aLJb75j_eM
 
