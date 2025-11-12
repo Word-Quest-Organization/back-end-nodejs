@@ -2,12 +2,12 @@
 GET http://localhost:3000/api/auth/test
 Content-Type: application/json
 
-### Teste da rota POST
+### Teste da rota POST Register
 POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-  "email": "natanaelhlacerda@gmail.com",
+  "email": "natanadelhlacerda@gmail.com",
   "password": "H@usmano12",
   "name": "natanaelhlacerda"
 }
@@ -29,5 +29,4 @@ Content-Type: application/json
 ### Teste da rota GET do perfil do usuário com token
 GET http://localhost:3000/api/user/profile
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MDRiOTA1LTJmMDktNGRlNi1hMTNiLTMxZGRjZmE4MDE3MSIsIm5hbWUiOiJuYXRhbmFlbGhsYWNlcmRhIiwiaWF0IjoxNzYxNzU1MDEwLCJleHAiOjE3NjIzNTk4MTB9.EBnR6q6UuRjQ1llOhRuCE1v0NYsySLfZ1aLJb75j_eM
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk2MDRiOTA1LTJmMDktNGRlNi1hMTNiLTMxZGRjZmE4MDE3MSIsIm5hbWUiOiJuYXRhbmFlbGhsYWNlcmRhIiwiaWF0IjoxNzYxNzU3MTkwLCJleHAiOjE3NjIzNjE5OTB9.5zKs8unPu76qWlhs9419yYb43HHaNE9wJP_tIgveNEw"

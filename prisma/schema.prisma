@@ -4,17 +4,68 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url = env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
+  id           String @id @default(uuid())
+  email        String @unique
   passwordHash String
-  name      String
+  name         String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("usuarios")
+}
+
+model GrammarBook {
+  id    String @id @default(uuid())
+  color String
+
+  unitList UnitList?
+
+  @@map("grammar_books")
+}
+
+model UnitList {
+  id            String      @id @default(uuid())
+  grammarBook   GrammarBook @relation(fields: [grammarBookId], references: [id])
+  grammarBookId String      @unique
+
+  units Unit[]
+
+  @@map("unit_lists")
+}
+
+model Unit {
+  id String @id @default(uuid())
+
+  unitList   UnitList @relation(fields: [unitListId], references: [id])
+  unitListId String
+
+  sentencesList SentencesList?
+
+  @@map("units")
+}
+
+model SentencesList {
+  id String @id @default(uuid())
+
+  unit   Unit   @relation(fields: [unitId], references: [id])
+  unitId String @unique
+
+  sentences Sentence[]
+
+  @@map("sentences_list")
+}
+
+model Sentence {
+  id   String @id @default(uuid())
+  text String
+
+  sentencesList   SentencesList @relation(fields: [sentencesListId], references: [id])
+  sentencesListId String
+
+  @@map("sentences")
 }
