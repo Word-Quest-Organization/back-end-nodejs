@@ -1,7 +1,8 @@
 const { param } = require("express-validator");
-const prisma = require("../config/database.js");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const { user: _user } = require("../config/database.js");
+const { hash, compare } = require("bcrypt");
+const { sign } = require("jsonwebtoken");
+
 
 function exclude(user, keys) {
   return Object.fromEntries(
@@ -9,16 +10,17 @@ function exclude(user, keys) {
   );
 }
 
-const registerUser = async (email, password, name) => {
+const registerUser = async (email, password, name, role) => {
   try {
     const saltRounds = 10;
-    const passwordHash = await bcrypt.hash(password, saltRounds);
+    const passwordHash = await hash(password, saltRounds);
 
-    const newUser = await prisma.user.create({
+    const newUser = await _user.create({
       data: {
         email: email,
         passwordHash: passwordHash,
         name: name,
+        role: role || "USER",
       },
     });
 
@@ -32,7 +34,7 @@ const registerUser = async (email, password, name) => {
 };
 
 const loginUser = async (email, password) => {
-  const user = await prisma.user.findUnique({
+  const user = await _user.findUnique({
     where: { email: email },
   });
 
@@ -40,13 +42,13 @@ const loginUser = async (email, password) => {
     throw new Error("Credenciais inválidas");
   }
 
-  const passwordMatch = await bcrypt.compare(password, user.passwordHash);
+  const passwordMatch = await compare(password, user.passwordHash);
   if (!passwordMatch) {
     throw new Error("Credenciais inválidas");
   }
 
-  const token = jwt.sign(
-    { id: user.id, name: user.name },
+  const token = sign(
+    { id: user.id, name: user.name, role: user.role },
     process.env.JWT_SECRET,
     { expiresIn: "7d" },
   );

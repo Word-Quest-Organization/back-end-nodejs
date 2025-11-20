@@ -7,9 +7,10 @@ POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-  "email": "natanadelhlacerda@gmail.com",
+  "email": "tessste@teste.com",
   "password": "H@usmano12",
   "name": "natanaelhlacerda"
+  
 }
 
 ### Teste da rota POST de login
@@ -17,8 +18,8 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "natanaelhlacerda@gmail.com",
-  "password": "H@usmano12"
+  "email": "teste@teste.com",
+  "password": "hausmano"
   
 }
 
